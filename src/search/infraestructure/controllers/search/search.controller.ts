@@ -6,7 +6,10 @@ export class SearchController {
   constructor(private searchSongslHandler: SearchSongsHandler) {}
 
   @Get()
-  async searchSongs(@Query('q') textToSearch: string) {
-    return this.searchSongslHandler.query(textToSearch);
+  async searchSongs(
+    @Query('q') textToSearch: string,
+    @Query('offset') offset: number,
+  ) {
+    return this.searchSongslHandler.query(textToSearch, offset);
   }
 }

@@ -5,7 +5,7 @@ import { Page } from './Page';
 export class Searcher implements SongService {
   constructor(private songsRepository: SongsRepository) {}
 
-  searchSongByText(text: string): Promise<Page> {
-    return this.songsRepository.searchSongs(text);
+  searchSongByText(text: string, offset?: number): Promise<Page> {
+    return this.songsRepository.searchSongs(text, offset);
   }
 }
