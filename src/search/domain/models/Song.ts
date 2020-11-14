@@ -1,19 +1,18 @@
-import { Artist } from "./Artist";
-
+import { Album } from './Album';
+import { Artist } from './Artist';
 
 export interface Song {
   id: string;
   name: string;
+  album: Album;
   artists: Artist[];
-  availableMarkets: string[];
   discNumber: number;
   durationMs: number;
   explicit: boolean;
   href: string;
-  isPlayable: boolean;
+  isLocal: boolean;
   previewUrl: string;
   trackNumber: number;
   type: string;
   uri: string;
-  isLocal: boolean;
 }

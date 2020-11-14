@@ -1,6 +1,6 @@
 import { SongsRepository } from '../repository/songs.repository';
 import { SongService } from '../services/song.service';
-import { Page } from './SongResponse';
+import { Page } from './Page';
 
 export class Searcher implements SongService {
   constructor(private songsRepository: SongsRepository) {}

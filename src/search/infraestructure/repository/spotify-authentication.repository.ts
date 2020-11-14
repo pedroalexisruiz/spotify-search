@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import axios from 'axios';
 import { Token } from 'src/search/domain/models/Token';
 import { AuthenticationRepository } from 'src/search/domain/repository/authenticacion.repository';
-import { TokenSchema } from '../schemas/TokenSchema';
+import { TokenDTO } from '../dtos/TokenDTO';
 import qs from 'qs';
 import { AuthenticationException } from 'src/search/domain/exceptions/AuthenticationException';
 
@@ -19,7 +19,7 @@ export class SpotifyAuthenticationRepository
       .map(([key, val]) => `${key}=${encodeURIComponent(val)}`)
       .join('&');
 
-    const tokenSchema: TokenSchema = await axios
+    const tokenSchema: TokenDTO = await axios
       .post('https://accounts.spotify.com/api/token', body, {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',

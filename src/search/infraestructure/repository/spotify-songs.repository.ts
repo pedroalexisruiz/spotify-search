@@ -3,7 +3,9 @@ import { SongsRepository } from 'src/search/domain/repository/songs.repository';
 import axios from 'axios';
 import { AuthenticationRepository } from 'src/search/domain/repository/authenticacion.repository';
 import { SearchSongsExceptions } from 'src/search/domain/exceptions/SearchSongsExceptions';
-import { SongResponseSchema } from '../schemas/SongResponseSchema';
+import { SongResponseDTO } from '../dtos/SongResponseDTO';
+import PageFactory from '../factories/PageFactory';
+import { Page } from 'src/search/domain/models/Page';
 
 @Injectable()
 export class SpotifySongsRepository implements SongsRepository {
@@ -13,7 +15,7 @@ export class SpotifySongsRepository implements SongsRepository {
     @Inject('authenticationRepository')
     private authenticationRepository: AuthenticationRepository,
   ) {}
-  async searchSongs(text: string, offset?: number): Promise<any> {
+  async searchSongs(text: string, offset?: number): Promise<Page> {
     return axios
       .get('https://api.spotify.com/v1/search', {
         headers: {
@@ -29,8 +31,8 @@ export class SpotifySongsRepository implements SongsRepository {
         },
         transformResponse: [
           (data) => {
-            const response: SongResponseSchema = JSON.parse(data);
-            return response.tracks;
+            const response: SongResponseDTO = JSON.parse(data);
+            return PageFactory.convertToModel(response.tracks);
           },
         ],
       })
