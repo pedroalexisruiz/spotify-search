@@ -6,6 +6,6 @@ import { SongService } from 'src/search/domain/services/song.service';
 export class SearchSongsHandler {
   constructor(@Inject('searcherService') private searcher: SongService) {}
   query(text: string, offset?: number): Promise<Page> {
-    return this.searcher.searchSongByText(text);
+    return this.searcher.searchSongByText(text, offset);
   }
 }
