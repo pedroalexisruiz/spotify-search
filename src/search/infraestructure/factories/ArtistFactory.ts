@@ -1,4 +1,4 @@
-import { Artist } from 'src/search/domain/models/Artist';
+import { Artist } from '../../domain/models/Artist';
 import { ArtistDTO } from '../dtos/ArtistDTO';
 
 const ArtistFactory = {

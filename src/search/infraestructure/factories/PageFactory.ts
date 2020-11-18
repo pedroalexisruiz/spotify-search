@@ -1,4 +1,4 @@
-import { Page } from 'src/search/domain/models/Page';
+import { Page } from '../../domain/models/Page';
 import { PageDTO } from '../dtos/PageDTO';
 import SongFactory from './SongFactory';
 

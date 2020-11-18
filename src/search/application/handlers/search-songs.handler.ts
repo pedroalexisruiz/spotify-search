@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { Page } from 'src/search/domain/models/Page';
-import { SongService } from 'src/search/domain/services/song.service';
+import { Page } from '../../domain/models/Page';
+import { SongService } from '../../domain/services/song.service';
 
 @Injectable()
 export class SearchSongsHandler {

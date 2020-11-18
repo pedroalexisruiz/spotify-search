@@ -1,5 +1,5 @@
-import { Searcher } from 'src/search/domain/models/Searcher';
-import { SongsRepository } from 'src/search/domain/repository/songs.repository';
+import { Searcher } from '../../domain/models/Searcher';
+import { SongsRepository } from '../../domain/repository/songs.repository';
 import { SpotifyAuthenticationRepository } from '../repository/spotify-authentication.repository';
 import { SpotifySongsRepository } from '../repository/spotify-songs.repository';
 

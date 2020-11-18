@@ -1,5 +1,5 @@
-import { Album } from 'src/search/domain/models/Album';
-import { Artist } from 'src/search/domain/models/Artist';
+import { Album } from '../../domain/models/Album';
+import { Artist } from '../../domain/models/Artist';
 import { AlbumDTO } from '../dtos/AlbumDTO';
 import ArtistFactory from './ArtistFactory';
 

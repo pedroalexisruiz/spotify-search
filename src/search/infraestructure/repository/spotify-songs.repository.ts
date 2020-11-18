@@ -1,11 +1,11 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { SongsRepository } from 'src/search/domain/repository/songs.repository';
+import { SongsRepository } from '../../domain/repository/songs.repository';
 import axios from 'axios';
-import { AuthenticationRepository } from 'src/search/domain/repository/authenticacion.repository';
-import { SearchSongsExceptions } from 'src/search/domain/exceptions/SearchSongsExceptions';
+import { AuthenticationRepository } from '../../domain/repository/authenticacion.repository';
+import { SearchSongsExceptions } from '../../domain/exceptions/SearchSongsExceptions';
 import { SongResponseDTO } from '../dtos/SongResponseDTO';
 import PageFactory from '../factories/PageFactory';
-import { Page } from 'src/search/domain/models/Page';
+import { Page } from '../../domain/models/Page';
 
 @Injectable()
 export class SpotifySongsRepository implements SongsRepository {

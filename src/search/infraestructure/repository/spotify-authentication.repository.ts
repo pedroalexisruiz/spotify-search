@@ -1,10 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import axios from 'axios';
-import { Token } from 'src/search/domain/models/Token';
-import { AuthenticationRepository } from 'src/search/domain/repository/authenticacion.repository';
+import { Token } from '../../domain/models/Token';
+import { AuthenticationRepository } from '../../domain/repository/authenticacion.repository';
 import { TokenDTO } from '../dtos/TokenDTO';
-import qs from 'qs';
-import { AuthenticationException } from 'src/search/domain/exceptions/AuthenticationException';
+import { AuthenticationException } from '../../domain/exceptions/AuthenticationException';
 
 @Injectable()
 export class SpotifyAuthenticationRepository

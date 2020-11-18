@@ -1,9 +1,9 @@
-import { Song } from 'src/search/domain/models/Song';
-import { Artist } from 'src/search/domain/models/Artist';
+import { Song } from '../../domain/models/Song';
+import { Artist } from '../../domain/models/Artist';
 import { SongDTO } from '../dtos/SongDTO';
 import ArtistFactory from './ArtistFactory';
 import AlbumFactory from './AlbumFactory';
-import { Album } from 'src/search/domain/models/Album';
+import { Album } from '../../domain/models/Album';
 
 const SongFactory = {
   convertToModel: (songDTO: SongDTO): Song => {

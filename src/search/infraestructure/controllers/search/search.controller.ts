@@ -1,5 +1,5 @@
 import { Controller, Get, Query } from '@nestjs/common';
-import { SearchSongsHandler } from 'src/search/application/handlers/search-songs.handler';
+import { SearchSongsHandler } from '../../../application/handlers/search-songs.handler';
 
 @Controller('search')
 export class SearchController {
