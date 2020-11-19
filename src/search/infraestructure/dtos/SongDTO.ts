@@ -21,4 +21,5 @@ export interface SongDTO {
   external_ids: ExternalIdsDTO;
   external_urls: ExternalUrlsDTO;
   popularity: number;
+  is_playable: boolean;
 }
