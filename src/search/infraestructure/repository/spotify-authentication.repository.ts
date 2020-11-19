@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import { Token } from '../../domain/models/Token';
 import { AuthenticationRepository } from '../../domain/repository/authenticacion.repository';
 import { TokenDTO } from '../dtos/TokenDTO';
@@ -19,19 +19,13 @@ export class SpotifyAuthenticationRepository
       .join('&');
 
     const tokenSchema: TokenDTO = await axios
-      .post('https://accounts.spotify.com/api/token', body, {
+      .post(process.env.NEST_SPOTIFY_AUTHENTICATION_API, body, {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
-          Authorization:
-            'Basic ' +
-            Buffer.from(
-              process.env.REACT_APP_SPOTIFY_CLIENT_ID +
-                ':' +
-                process.env.REACT_APP_SPOTIFY_CLIENT_SECRET,
-            ).toString('base64'),
+          Authorization: `Basic ${this.credentials}`,
         },
       })
-      .then((res) => res.data)
+      .then((res: AxiosResponse<TokenDTO>) => res.data)
       .catch((error) => {
         throw new AuthenticationException(
           SpotifyAuthenticationRepository.AUTHENTICATION_ERROR_MESSAGE,
@@ -49,5 +43,13 @@ export class SpotifyAuthenticationRepository
       await this.authenticate();
     }
     return this.token;
+  }
+
+  private get credentials(): string {
+    return Buffer.from(
+      process.env.NEST_APP_SPOTIFY_CLIENT_ID +
+        ':' +
+        process.env.NEST_APP_SPOTIFY_CLIENT_SECRET,
+    ).toString('base64');
   }
 }
