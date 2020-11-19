@@ -4,13 +4,7 @@ import { ArtistDTO } from '../dtos/ArtistDTO';
 const ArtistFactory = {
   convertToModel: (artistDTO: ArtistDTO): Artist => {
     const { href, id, name, type, uri } = artistDTO;
-    return {
-      href,
-      id,
-      name,
-      type,
-      uri,
-    };
+    return new Artist(href, id, name, type, uri);
   },
 };
 

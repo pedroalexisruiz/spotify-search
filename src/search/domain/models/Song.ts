@@ -1,18 +1,20 @@
 import { Album } from './Album';
 import { Artist } from './Artist';
 
-export interface Song {
-  id: string;
-  name: string;
-  album: Album;
-  artists: Artist[];
-  discNumber: number;
-  durationMs: number;
-  explicit: boolean;
-  href: string;
-  isLocal: boolean;
-  previewUrl: string;
-  trackNumber: number;
-  type: string;
-  uri: string;
+export class Song {
+  constructor(
+    private id: string,
+    private name: string,
+    private album: Album,
+    private artists: Artist[],
+    private discNumber: number,
+    private durationMs: number,
+    private explicit: boolean,
+    private href: string,
+    private isLocal: boolean,
+    private previewUrl: string,
+    private trackNumber: number,
+    private type: string,
+    private uri: string,
+  ) {}
 }

@@ -7,26 +7,38 @@ import { Album } from '../../domain/models/Album';
 
 const SongFactory = {
   convertToModel: (songDTO: SongDTO): Song => {
-    const { href, id, explicit, name, type, uri } = songDTO;
+    const {
+      href,
+      id,
+      explicit,
+      name,
+      type,
+      uri,
+      disc_number,
+      duration_ms,
+      is_local,
+      preview_url,
+      track_number,
+    } = songDTO;
     const artists: Artist[] = songDTO.artists.map((artistDTO) =>
       ArtistFactory.convertToModel(artistDTO),
     );
     const album: Album = AlbumFactory.convertToModel(songDTO.album);
-    return {
+    return new Song(
       id,
       name,
       album,
       artists,
-      discNumber: songDTO.disc_number,
-      durationMs: songDTO.duration_ms,
+      disc_number,
+      duration_ms,
       explicit,
       href,
-      isLocal: songDTO.is_local,
-      previewUrl: songDTO.preview_url,
-      trackNumber: songDTO.track_number,
+      is_local,
+      preview_url,
+      track_number,
       type,
       uri,
-    };
+    );
   },
 };
 

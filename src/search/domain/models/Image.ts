@@ -1,6 +1,7 @@
-
-export interface Image {
-  height: number;
-  url: string;
-  width: number;
+export class Image {
+  constructor(
+    private height: number,
+    private url: string,
+    private width: number,
+  ) {}
 }

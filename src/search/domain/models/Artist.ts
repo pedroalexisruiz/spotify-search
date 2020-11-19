@@ -1,12 +1,9 @@
-import { Image } from './Image';
-
-export interface Artist {
-  href: string;
-  id: string;
-  name: string;
-  type: string;
-  uri: string;
-  genres?: string[];
-  images?: Image[];
-  popularity?: number;
+export class Artist {
+  constructor(
+    private href: string,
+    private id: string,
+    private name: string,
+    private type: string,
+    private uri: string,
+  ) {}
 }

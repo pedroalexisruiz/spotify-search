@@ -4,12 +4,11 @@ import SongFactory from './SongFactory';
 
 const PageFactory = {
   convertToModel: (pageDTO: PageDTO): Page => {
-    return {
-      ...pageDTO,
-      items: pageDTO.items.map((songDTO) =>
-        SongFactory.convertToModel(songDTO),
-      ),
-    };
+    const { href, limit, next, offset, previous, total } = pageDTO;
+    const items = pageDTO.items.map((songDTO) =>
+      SongFactory.convertToModel(songDTO),
+    );
+    return new Page(href, items, limit, next, offset, previous, total);
   },
 };
 
