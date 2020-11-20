@@ -3,7 +3,7 @@ import { SearchSongsHandler } from './application/handlers/search-songs.handler'
 import {
   SearcherServiceProvider,
   SpotifyAuthenticacionRepositoryProvider,
-} from './infraestructure/configuration/service.provider';
+} from './configuration/service.provider';
 import { SearchController } from './infraestructure/controllers/search/search.controller';
 import { SpotifySongsRepository } from './infraestructure/repository/spotify-songs.repository';
 
